@@ -14,6 +14,18 @@ class User < ApplicationRecord
     has_secure_password
 
 
+    # def follow(user)
+    #     follow.create(followed_id: user.id)
+    # end
+
+    # def unfollow(user)
+    #     follow.find_by(followed_id: user.id).destroy
+    # end
+
+    # def following?(user)
+    #     following_users.include?(user)
+    # end
+
 
 
 
