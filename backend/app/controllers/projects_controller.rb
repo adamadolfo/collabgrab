@@ -23,4 +23,19 @@ class ProjectsController < ApplicationController
         
         end
     end
+
+    def create
+        @project = Project.new(name: params[:name], details: params[:details], location: params[:location])
+        if @project.save
+            render json: {
+                project: @project,
+                working: true
+            }
+        else 
+            render json: {
+                working: false,
+                errors: ["unsuccessful project creation"]
+            }
+        end
+    end
 end

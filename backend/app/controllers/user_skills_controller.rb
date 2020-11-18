@@ -23,4 +23,19 @@ class UserSkillsController < ApplicationController
         
         end
     end
+
+    def create
+        @user_skill = UserSkill.new(user_id: params[:user_id], skill_id: params[:skill_id])
+        if @user_skill.save
+            render json: {
+                user_skill: @user_skill,
+                working: true
+            }
+        else 
+            render json: {
+                working: false,
+                errors: ["unsuccessful skill creation"]
+            }
+        end
+    end
 end

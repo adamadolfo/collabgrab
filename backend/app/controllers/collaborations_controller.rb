@@ -23,4 +23,20 @@ class CollaborationsController < ApplicationController
         
         end
     end
+
+
+    def create
+        @collaboration = Collaboration.new(user_id: params[:user_id], project_id: params[:project_id])
+        if @collaboration.save
+            render json: {
+                collaboration: @collaboration,
+                working: true
+            }
+        else 
+            render json: {
+                working: false,
+                errors: ["unsuccessful collab creation"]
+            }
+        end
+    end
 end
