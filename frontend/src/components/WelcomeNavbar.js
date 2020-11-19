@@ -1,9 +1,9 @@
 import React from 'react';
 // import image from 'logo.png'
 
-function Navbar() {
+function WelcomeNavbar() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <nav class="navbar navbar-expand-lg welcome-nav">
       <img src='https://i.imgur.com/nHbE8tX.png' height="85px" width="300px"/>
       <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav ml-auto">
@@ -16,5 +16,5 @@ function Navbar() {
     );
   }
   
-  export default Navbar;
+  export default WelcomeNavbar;
   

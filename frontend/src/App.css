@@ -10,16 +10,14 @@
 
 /* nav */
 
-.navbar {
-  background: none !important;
+.welcom-nav {
+  background: none;
 }
 
 .nav-item {
   font-size: 30px;
   color: white !important;
   word-spacing: 20px;
-  padding-left: 2.5rem !important;
-  padding-right: 2.5rem !important;
 }
 
 /* welcome */
