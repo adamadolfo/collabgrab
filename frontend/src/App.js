@@ -1,7 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-import Navbar from './components/Navbar'
+
 import Welcome from './components/Welcome'
 
 
@@ -9,7 +11,6 @@ import Welcome from './components/Welcome'
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Welcome />
     </div>
   );
