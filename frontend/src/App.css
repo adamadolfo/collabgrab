@@ -40,3 +40,26 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+/* container */
+
+
+
+
+
+/* cards */
+.card {
+  width: 300px;
+  height: 300px;
+  border: 1px solid;
+  box-shadow: 5px 7px #888888;
+  margin: 10px;
+} 
+
+.card-footer {
+  background-color: #242424;
+}
+
+.footer-text {
+  color: white;
+}

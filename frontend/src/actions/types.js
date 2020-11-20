@@ -1,0 +1,3 @@
+export const FETCH_SKILLS = 'FETCH_SKILLS'
+
+export const FETCH_PROJECTS = 'FETCH_PROJECTS'
