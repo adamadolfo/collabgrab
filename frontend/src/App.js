@@ -7,18 +7,21 @@ import {useSelector} from 'react-redux'
 import Welcome from './components/Welcome'
 import SkillBody from './components/SkillBody'
 import ProjectBody from './components/ProjectBody'
+import SignUp from './components/SignUp'
+import Login from './components/Login'
 
 
 
 
 function App() {
-  const loggedIn = useSelector(state => state.loggedIn)
   return (
     <div className="App">
       <Switch>
         <Route exact path="/" component={Welcome} />
         <Route exact path="/skills" component={SkillBody}/>
         <Route exact path="/projects" component={ProjectBody}/>
+        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/login" component={Login}/>
       </Switch>
     </div>
   );

@@ -1,12 +1,13 @@
 import React from 'react';
 import WelcomeNavbar from './WelcomeNavbar'
-import {useSelector, useDispatch} from 'react-redux'
-import {logged} from '../actions'
+
+import { Link } from 'react-router-dom';
+
+
 
 
 function Welcome() {
-    const loggedIn = useSelector(state => state.loggedIn)
-    const dispatch = useDispatch()
+   
 
     const textStyle = {
         fontSize: "5rem", 
@@ -25,9 +26,11 @@ function Welcome() {
                     <div class="col-sm">
                     </div>
                     <div class="col-xl-">
-                        {loggedIn ? null : <h1 style={textStyle}> Bring an idea to life. </h1>}
+                        <h1 style={textStyle}> Bring an idea to life. </h1>
                         <h1 style={textStyle}> Collaborate with people world-wide. </h1>
-                        <button onClick={() => dispatch(logged())} type="button" class="btn btn-outline-light btn-lg btn-block">sign-up</button>
+                        <Link to='/signup'>
+                            <button type="button" class="btn btn-outline-light btn-lg btn-block">sign-up</button>
+                        </Link>
                     </div>
                     <div class="col-sm">
                     </div>

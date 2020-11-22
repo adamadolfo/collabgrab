@@ -7,6 +7,7 @@ import allReducers from './reducers'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
+
 //STORE
 
 

@@ -1,17 +1,19 @@
 import React from 'react';
-// import image from 'logo.png'
+import { Link } from 'react-router-dom';
 
 function WelcomeNavbar() {
     return (
       <nav class="navbar navbar-expand-lg welcome-nav">
-      <img src='https://i.imgur.com/nHbE8tX.png' height="85px" width="300px"/>
-      <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link active" href="#">About</a>
-      <a class="nav-item nav-link" href="#">Contact</a>
-      <a class="nav-item nav-link" href="#">Login</a>
-    </div>
-      </div>
+        <Link to='/'>
+        <img src='https://i.imgur.com/nHbE8tX.png' height="85px" width="300px"/>
+        </Link>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav ml-auto">
+            <Link to='/login'>
+              <a class="nav-item nav-link" href="#">Login</a>
+            </Link>
+          </div>
+        </div>
     </nav>
     );
   }
