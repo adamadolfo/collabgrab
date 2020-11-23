@@ -9,6 +9,7 @@ import SkillBody from './components/SkillBody'
 import ProjectBody from './components/ProjectBody'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Dashboard from './components/Dashboard'
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/projects" component={ProjectBody}/>
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={Login}/>
+        <Route exact path="/dashboard" component={Dashboard}/>
       </Switch>
     </div>
   );
