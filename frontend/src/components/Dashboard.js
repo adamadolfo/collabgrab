@@ -4,12 +4,13 @@ import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 
 const Dashboard = () => {
-    const user = useSelector(state => state.user.user.user)
+    const user = useSelector(state => state.user.user)
+    console.log(user)
     return(
-        <>
+        <div className='dashboard'>
             <MainNav />
             <h1>
-                {user} picture
+                {user.name} picture
             </h1>
 
             <br/>
@@ -20,6 +21,7 @@ const Dashboard = () => {
                 Skills
             </h1>
             <p> list of skills this user has </p>
+            {/* {user.skills.map(skill => skill.name)} */}
             <p> click for a form to add a new skill </p>
             <br/>
             <br/>
@@ -31,7 +33,7 @@ const Dashboard = () => {
             <p> list of projects this user has </p>
             <p>  click for a form to add a new project </p>
             <br/>
-        </>
+        </div>
     )
 
 

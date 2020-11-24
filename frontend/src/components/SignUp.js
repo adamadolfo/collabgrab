@@ -8,6 +8,7 @@ import { signUp } from '../actions/userActions'
 
 
 
+
 class SignUp extends Component {
     state = {
         name: "",

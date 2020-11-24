@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Col, Container } from 'react-bootstrap'
 import WelcomeNavbar from './WelcomeNavbar'
 
@@ -7,42 +7,37 @@ import PropTypes from 'prop-types'
 import { logIn } from '../actions/userActions'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
     
 
 
-class Login extends Component {
+function Login(props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const history = useHistory();
+    const user = useSelector(state => state.user.user.user)
 
-    
-
-
-    state = {
-        username: "",
-        password: ""
+    const usernameOnChange = (e) => {
+        setUsername(e.target.value)
     }
 
-    usernameOnChange = (e) => {
-        this.setState({
-            username: e.target.value
-        })
+    const passwordOnChange = (e) => {
+        setPassword(e.target.value)
     }
 
-    passwordOnChange = (e) => {
-        this.setState({
-            password: e.target.value
-        })
-    }
-
-    submitHandler = (event) => {
+    const submitHandler = (event) => {
         event.preventDefault()
         const newObj = {
-          username: this.state.username,
-          password: this.state.password 
+          username: username,
+          password: password 
         }
-        this.props.logIn(newObj)
+        props.logIn(newObj)
+        // if (user) {
+            history.push("/dashboard");
+        // }
     }
 
-    render() {
+    
         return(
         <div className="form-page">
             <WelcomeNavbar />
@@ -50,17 +45,17 @@ class Login extends Component {
                 <h1 style={{color: "white", fontSize: "3rem", textAlign: "center", padding: "20px"}}> Login </h1>
                 <Container>  
                     
-                <Form onSubmit={(e) => this.submitHandler(e)}>
+                <Form onSubmit={(e) => submitHandler(e)}>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label"> Username: </Form.Label>
-                            <Form.Control onChange={this.usernameOnChange} placeholder="Username" />
+                            <Form.Control value={username} onChange={usernameOnChange} placeholder="Username" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label"> Password: </Form.Label>
-                            <Form.Control onChange={this.passwordOnChange} type='password' placeholder="Password" />
+                            <Form.Control value={password} onChange={passwordOnChange} type='password' placeholder="Password" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
@@ -74,7 +69,7 @@ class Login extends Component {
         </div>
         )
         
-    }
+
 }
 
 
