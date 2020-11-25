@@ -3,15 +3,13 @@ import MainNav from "./MainNav"
 import SkillCard from './SkillCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { fetchSkills } from '../actions/skillActions'
+
 import PropTypes from "prop-types"
 
 
 
 class SkillBody extends Component {
-  componentWillMount() {
-    this.props.fetchSkills()
-  }
+
  render() {
    
          return (
@@ -23,7 +21,7 @@ class SkillBody extends Component {
                  <Col>  
    
                 <CardDeck>
-                   {this.props.skills.map(skill => <SkillCard skill={skill} />)}
+                   {/* {this.props.skills.map(skill => <SkillCard skill={skill} />)} */}
                  </CardDeck>
    
                  </Col>
@@ -39,13 +37,5 @@ class SkillBody extends Component {
  }
     }
 
-  SkillBody.propTypes = {
-    fetchSkills: PropTypes.func.isRequired,
-    skills: PropTypes.array.isRequired
-  }
-
-const mapStateToProps = state => ({
-  skills: state.skills.skillsArray
-})
-    
-    export default connect(mapStateToProps, { fetchSkills })(SkillBody);
+  
+export default SkillBody
