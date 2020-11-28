@@ -1,17 +1,31 @@
-import React, { Component } from "react"
+import React, {useState} from "react"
 import MainNav from "./MainNav"
 import SkillCard from './SkillCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
-import { connect } from 'react-redux'
 
-import PropTypes from "prop-types"
-
+import { useSelector } from 'react-redux'
 
 
-class SkillBody extends Component {
 
- render() {
-   
+
+
+function SkillBody (props) {
+  const skills = useSelector(state => state.skills.skillsArray)
+  // let user = useSelector(state => state.user.user)
+
+  let [display, setDisplay] = useState(false)
+  let [clickedSkill, setClickedSkill] = useState({})
+
+  
+
+  const handleClick = (e, skillName) => {
+    let eventClicked = skills.find(skill => skill.name == skillName)
+    setClickedSkill(clickedSkill = eventClicked)
+    setDisplay(!display)
+  }
+
+ 
+
          return (
            <div>
              <MainNav/>
@@ -20,9 +34,11 @@ class SkillBody extends Component {
                <Row>
                  <Col>  
    
-                <CardDeck>
-                   {/* {this.props.skills.map(skill => <SkillCard skill={skill} />)} */}
-                 </CardDeck>
+                { !display ? <CardDeck>
+                   {skills.map(skill => <SkillCard skill={skill} handleClick={handleClick}/>)}
+                 </CardDeck> 
+                 :
+                 clickedSkill.users.map(user => <h1> {user.name} </h1>) }
    
                  </Col>
                </Row>
@@ -34,7 +50,6 @@ class SkillBody extends Component {
            </div>
          );
 
- }
     }
 
   

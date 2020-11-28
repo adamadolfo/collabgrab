@@ -1,5 +1,5 @@
 
-import { CREATE_USER_SKILL } from './types'
+import { LOG_IN } from './types'
 
 export function createUserSkill(userSkillData) {
     return function(dispatch) {
@@ -10,11 +10,10 @@ export function createUserSkill(userSkillData) {
         }
         )
         .then(r => r.json())
-        .then(user_skill => {
-            debugger
+        .then(user => {
             dispatch({
-                type: CREATE_USER_SKILL,
-                payload: user_skill
+                type: LOG_IN,
+                payload: user
             })
             })
     }

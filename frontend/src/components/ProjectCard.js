@@ -6,11 +6,14 @@ function ProjectCard(props) {
       return (
         <div>
           <Card className='card'>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body>
-              <Card.Title>{props.project.name}</Card.Title>
+              <Card.Title><h4>{props.project.name}</h4></Card.Title>
               <Card.Text>
-              {props.project.details}
+                <h6>Details:</h6> 
+                <p>{props.project.details}</p>
+                <h6>Required skills:</h6>
+                {props.project.required_skills.map(required_skill => <p><strong> {required_skill.name} </strong></p>)}
               </Card.Text>
             </Card.Body>
             <Card.Footer className='card-footer'>

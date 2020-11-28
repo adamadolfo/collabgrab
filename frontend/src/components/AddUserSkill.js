@@ -25,7 +25,7 @@ const AddUserSkill = (props) => {
         }
         props.createUserSkill(newObj)
     }
-
+    console.log(skillsArray)
         return(
         <div>
             <Container className="form-container">
@@ -35,7 +35,7 @@ const AddUserSkill = (props) => {
                            
                     <Form onSubmit={(e) => handleSubmit(e)}>
                         <select onChange={handleSelect}>
-                            {skillsArray.map(skill => <option value={skill.id}> {skill.name} </option>)}
+                            {skillsArray.length !== 0 ? skillsArray.map(skill => <option value={skill.id}> {skill.name} </option>) : null}
                         </select>
                         <Form.Row className="form-row">
                             <Col className="form-column">

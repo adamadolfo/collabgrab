@@ -14,11 +14,13 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 
 import { fetchSkills } from './actions/skillActions'
+import { fetchProjects } from './actions/projectActions'
 
 
 function App(props) {
   useEffect(() => {
     props.fetchSkills()
+    props.fetchProjects()
 })
   return (
     <div className="App">
@@ -43,4 +45,4 @@ function App(props) {
 // skills: state.skills.skillsArray
 // })
   
-export default connect(null, { fetchSkills })(App);
+export default connect(null, { fetchSkills, fetchProjects })(App);

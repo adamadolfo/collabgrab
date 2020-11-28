@@ -13,8 +13,10 @@ const AddUserProject = (props) => {
     const [name, setName] = useState("");
     const [details, setDetails] = useState("");
     const [location, setLocation] = useState("");
+    const [requiredSkill, setRequiredSkill] = useState("");
 
     const user = useSelector(state => state.user.user)
+    const skillsArray = useSelector(state => state.skills.skillsArray)
         
     const nameOnChange = (e) => {
         setName(e.target.value)
@@ -28,14 +30,20 @@ const AddUserProject = (props) => {
         setLocation(e.target.value)
     }
 
+    const selectedRequiredSkill = (e) => {
+        setRequiredSkill(e.target.value)
+    }
+
     const submitHandler = (event) => {
         event.preventDefault()
         const newObj = {
           name: name,
           details: details,
-          location: location
+          location: location,
+          user_id: user.id,
+          required_skill: requiredSkill
         }
-        props.addProject(newObj, user.id )
+        props.addProject(newObj)
     }
     
     
@@ -60,8 +68,16 @@ const AddUserProject = (props) => {
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
-                            <Form.Label className="form-label"> location: </Form.Label>
+                            <Form.Label className="form-label"> Location: </Form.Label>
                             <Form.Control value={location} onChange={locationOnChange} type='text' placeholder="location" />
+                        </Col>
+                    </Form.Row>
+                    <Form.Row className="form-row">
+                        <Col className="form-column">
+                            <Form.Label className="form-label"> Required Skill: </Form.Label>
+                            <select onChange={selectedRequiredSkill}>
+                            {skillsArray.map(skill => <option value={skill.name}> {skill.name} </option>)}
+                            </select>
                         </Col>
                     </Form.Row>
 
@@ -77,6 +93,12 @@ const AddUserProject = (props) => {
         </div>
         ) 
 }
+
+
+// const mapStateToProps = state => ({
+//     projects: state.projects.projects,
+//     project: state.projects.project
+// })
 
 
 export default connect(null, { addProject })(AddUserProject)

@@ -5,7 +5,6 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
-    console.log('test')
     switch(action.type) {
         case CREATE_USER_SKILL:
             return {

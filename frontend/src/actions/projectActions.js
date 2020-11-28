@@ -1,4 +1,4 @@
-import { FETCH_PROJECTS, ADD_PROJECT } from './types'
+import { FETCH_PROJECTS, LOG_IN } from './types'
 
 export function fetchProjects() {
     return function(dispatch) {
@@ -11,7 +11,7 @@ export function fetchProjects() {
     }
 }
 
-export function addProject(projectData, id) {
+export function addProject(projectData) {
     
     return function(dispatch) {
         fetch('http://localhost:3001/projects', {
@@ -20,25 +20,14 @@ export function addProject(projectData, id) {
             body: JSON.stringify(projectData)
         })
         .then(r => r.json())
-        .then(project => {
-            if (project.working) {
+        .then(user => {
+           
                 dispatch({ 
-                    type: ADD_PROJECT,
-                    payload: project.project
+                    type: LOG_IN,
+                    payload: user
                 })
-            //     let collab = {
-            //         user_id: id, 
-            //         project_id: project.project
-            //     }
-            //     fetch('http://localhost:3001/collaborations', {
-            //         method: 'POST',
-            //         headers: { 'Content-Type': 'application/json' },
-            //         body: JSON.stringify(collab)
-            //     }).then(r => r.json())
-            //     .then(collaboration => dispatch({
-
-            //     })
-            }
+   
+            
 
        })
     }
