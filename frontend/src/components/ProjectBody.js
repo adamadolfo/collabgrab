@@ -3,7 +3,7 @@ import MainNav from "./MainNav"
 import ProjectCard from './ProjectCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-
+import { Select } from 'react-select'
 
 
 // need to add to schema, Project has many requiredSkills 
@@ -43,8 +43,8 @@ function ProjectBody() {
              <Container>
                <Row>
                  <Col>
-             
-                 <div className="project-search"> 
+                  <Select />
+                 {/* <div className="project-search"> 
                  <form onSubmit={filterProjects}>
                    
                   <input
@@ -55,8 +55,8 @@ function ProjectBody() {
                     placeholder=" Search.." 
                     />
                    </form> 
-                   <i class="fas fa-search"  ></i>
-                  </div>
+                   
+                  </div> */}
                 <CardDeck>
                    {projects.map(project => <ProjectCard project={project}/>)}
                  </CardDeck>

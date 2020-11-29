@@ -1,4 +1,4 @@
-import { SIGN_UP, LOG_IN } from '../actions/types'
+import { SIGN_UP, LOG_IN, EDIT_PROFILE } from '../actions/types'
 
 const initialState = {
     user: {}
@@ -12,7 +12,11 @@ const userReducer = (state = initialState, action) => {
                 user: action.payload
             };
         case LOG_IN:
-
+            return {
+                ...state,
+                user: action.payload
+            }
+        case "EDIT_PROFILE":
             return {
                 ...state,
                 user: action.payload

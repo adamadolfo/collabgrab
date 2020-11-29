@@ -2,58 +2,58 @@ import React, { useState } from 'react'
 import { Form, Col, Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { connect } from 'react-redux'
-import { addProject } from '../actions/projectActions'
+import { editProfile } from '../actions/userActions'
 
 
 
 
-const AddUserProject = (props) => {
+const AddUserProfile = (props) => {
     
 
     const [name, setName] = useState("");
-    const [details, setDetails] = useState("");
+    const [bio, setBio] = useState("");
     const [location, setLocation] = useState("");
-    const [requiredSkill, setRequiredSkill] = useState("");
+    const [img, setImg] = useState("");
 
     const user = useSelector(state => state.user.user)
-    const skillsArray = useSelector(state => state.skills.skillsArray)
         
     const nameOnChange = (e) => {
         setName(e.target.value)
     }
 
-    const detailsOnChange = (e) => {
-        setDetails(e.target.value)
+    const bioOnChange = (e) => {
+        setBio(e.target.value)
+    }
+
+    const imgOnChange = (e) => {
+        setImg(e.target.value)
     }
 
     const locationOnChange = (e) => {
         setLocation(e.target.value)
     }
 
-    const selectedRequiredSkill = (e) => {
-        setRequiredSkill(e.target.value)
-    }
-
-    const submitHandler = (event) => {
+    const editHandler = (event) => {
         event.preventDefault()
         const newObj = {
           name: name,
-          details: details,
+          bio: bio,
           location: location,
-          user_id: user.id,
-          required_skill: requiredSkill
+          img: img,
+          user_id: user.id
         }
-        props.addProject(newObj)
+       
+        editProfile(newObj)
     }
     
     
         return(
         <div>
             <Container className="form-container">
-                <h1 style={{color: "white", fontSize: "3rem", textAlign: "center", padding: "20px"}}> New Project </h1>
+                <h1 style={{color: "white", fontSize: "3rem", textAlign: "center", padding: "20px"}}> Edit profile </h1>
                 <Container>  
 
-                    <Form onSubmit={(e) => submitHandler(e)}>
+                    <Form onSubmit={(e) => editHandler(e)}>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label"> Name: </Form.Label>
@@ -62,28 +62,25 @@ const AddUserProject = (props) => {
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
-                            <Form.Label className="form-label"> Details: </Form.Label>
-                            <Form.Control value={details} onChange={detailsOnChange} type='text' placeholder="Details" />
+                            <Form.Label className="form-label"> Image: </Form.Label>
+                            <Form.Control value={img} onChange={imgOnChange} type='text' placeholder="Image (url)" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label"> Location: </Form.Label>
-                            <Form.Control value={location} onChange={locationOnChange} type='text' placeholder="location" />
+                            <Form.Control value={location} onChange={locationOnChange} type='text' placeholder="Location" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
-                            <Form.Label className="form-label"> Required Skill: </Form.Label>
-                            <select onChange={selectedRequiredSkill}>
-                            {skillsArray.map(skill => <option value={skill.name}> {skill.name} </option>)}
-                            </select>
+                            <Form.Label className="form-label"> Bio: </Form.Label>
+                            <Form.Control value={bio} onChange={bioOnChange} type='text' placeholder="Bio" />
                         </Col>
                     </Form.Row>
-
                         <Form.Row className="form-row">
                             <Col className="form-column">
-                                <button type="submit" class="btn btn-outline-light btn-lg btn-block" style={{marginTop: "20px"}}>Add Project</button>
+                                <button type="submit" class="btn btn-outline-light btn-lg btn-block" style={{marginTop: "40px"}}>Edit Profile</button>
                             </Col>
                         </Form.Row>
                     </Form>
@@ -94,11 +91,4 @@ const AddUserProject = (props) => {
         ) 
 }
 
-
-// const mapStateToProps = state => ({
-//     projects: state.projects.projects,
-//     project: state.projects.project
-// })
-
-
-export default connect(null, { addProject })(AddUserProject)
+export default connect(null, {editProfile})(AddUserProfile)

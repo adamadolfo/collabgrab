@@ -12,6 +12,7 @@ import ProjectBody from './components/ProjectBody'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
+import Profile from './components/Profile'
 
 import { fetchSkills } from './actions/skillActions'
 import { fetchProjects } from './actions/projectActions'
@@ -31,6 +32,7 @@ function App(props) {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/dashboard" component={Dashboard}/>
+        {/* <Route exact path='/profile' component={Profile} /> */}
       </Switch>
     </div>
   );

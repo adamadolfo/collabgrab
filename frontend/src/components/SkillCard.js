@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import { Card } from 'react-bootstrap'
 
 
@@ -10,8 +10,8 @@ function SkillCard(props) {
           
        
           
-          <Card className='card' onClick={ (e) => props.handleClick(e, props.skill.name)} >
-            <Card.Img variant="top" src={props.skill.img} />
+          <Card className='card' onClick={ (e) => props.handleSkillClick(e, props.skill.name)} >
+            <Card.Img variant="top" src={props.skill.img} style={{height: "200px"}}/>
             <Card.Body>
               <Card.Title>{props.skill.name}</Card.Title>
               <Card.Text>

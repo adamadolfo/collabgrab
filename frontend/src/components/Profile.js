@@ -1,31 +1,14 @@
 import React, { useState, useEffect} from 'react';
 import MainNav from "./MainNav"
 import { useSelector } from 'react-redux'
-import AddUserSkill from './AddUserSkill'
-import AddUserProject from './AddUserProject';
-import AddUserProfile from './AddUserProfile';
 
 
-const Dashboard = () => {
+const Profile = () => {
 
 
     let user = useSelector(state => state.user.user)
     
-    const [hideSkills, setHideSkills] = useState(true)
-    const [hideProjects, setHideProjects] = useState(true)
-    const [hideEdit, setHideEdit] = useState(true)
 
-    const showSkillForm = () => {
-        setHideSkills(!hideSkills)
-    }
-
-    const showProjectForm = () => {
-        setHideProjects(!hideProjects)
-    }
-
-    const showEditForm = () => {
-        setHideEdit(!hideEdit)
-    }
 
     return(
         <div className='dashboard'>
@@ -35,20 +18,12 @@ const Dashboard = () => {
                 <div class="row dash-row-1">
 
                     <div class="col dash-one-one">
-                        {hideEdit ? 
-                        <>
+                       
                         <h1 style={{color: "white", margin: "10px"}} >
                             {user.name}
                         </h1>
-                        <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}>Edit Profile </button>
-                        </>
-                        : 
-                        <>
-                        <AddUserProfile /> 
-                        <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}> Back </button> 
+
                         
-                        </>
-                        }
                     </div> 
                 
                 </div>
@@ -60,12 +35,12 @@ const Dashboard = () => {
                             Skills
                         </h1>
                       
-                        <button onClick={showSkillForm} type="button" class="btn btn-secondary" style={{marginBottom: "20px", marginTop: "20px"}}>Add a new skill </button> 
+    
                         <br/>
                     
                         {Object.keys(user).length !== 0 ? user.skills.map(skill => <div className='custom-card' > <h6 className='custom-card-text'>{skill.name}</h6> </div>) : null}
 
-                        { !hideSkills ? <AddUserSkill/> : null }
+                        
                     </div>
                 
                 </div>
@@ -77,15 +52,14 @@ const Dashboard = () => {
                         </h1>
                         {Object.keys(user).length !== 0 ? user.projects.map(project => <div className='custom-card'> <h6 className='custom-card-text'>{project.name}</h6> </div>) : null}
                         <br/>
-                        <button onClick={showProjectForm} type="button" class="btn btn-secondary" style={{marginBottom: "20px", marginTop: "20px"}}>Create a new Project </button> 
-                        { !hideProjects ? <AddUserProject/> : null }
+                    
                     
                     </div>
                     
                 </div>
               
             </div>
-               <div style={{width: "100%", height: "100px", backgroundColor: "#505050"}} > </div>
+           
         </div>
     )
 
@@ -97,4 +71,4 @@ const Dashboard = () => {
 }
 
 
-      export default Dashboard
+      export default Profile

@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import MainNav from "./MainNav"
 import SkillCard from './SkillCard'
+import UserCard from './UserCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
 
 import { useSelector } from 'react-redux'
@@ -18,7 +19,7 @@ function SkillBody (props) {
 
   
 
-  const handleClick = (e, skillName) => {
+  const handleSkillClick = (e, skillName) => {
     let eventClicked = skills.find(skill => skill.name == skillName)
     setClickedSkill(clickedSkill = eventClicked)
     setDisplay(!display)
@@ -35,10 +36,13 @@ function SkillBody (props) {
                  <Col>  
    
                 { !display ? <CardDeck>
-                   {skills.map(skill => <SkillCard skill={skill} handleClick={handleClick}/>)}
+                   {skills.map(skill => <SkillCard skill={skill} handleSkillClick={handleSkillClick}/>)}
                  </CardDeck> 
                  :
-                 clickedSkill.users.map(user => <h1> {user.name} </h1>) }
+                 <CardDeck>
+                    {clickedSkill.users.map(user => <UserCard user={user} />)}
+                 </CardDeck >
+                  }
    
                  </Col>
                </Row>

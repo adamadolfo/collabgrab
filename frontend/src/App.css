@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  
 
 }
 
@@ -52,9 +53,9 @@
 }
 
  .form-container {
-   background-color: #1d2324;
+   background-color: #505050;
    opacity: 95%;
-   height: 80%;
+   height: auto;
    margin-top: 30px;
    margin-bottom: 30px;
    border-radius: 25px;
@@ -95,21 +96,24 @@
   text-align: center;
 }
 
-.dash-row-one {
-  height: 400px;
+.dash-row-1 {
+  
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.dash-col-four {
+  background-color: gray;
+  height: 20px;
 }
 
 .dash-one-one {
-  background-color: hotpink;
+  height: 800px;
+  background-color: #1d2324;
   border-radius: 20px;
 }
 
-.dash-one-three {
-  /* margin-bottom: 40px;
-  padding-bottom: 40px; */
-}
+
 
 
 

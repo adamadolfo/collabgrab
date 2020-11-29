@@ -39,7 +39,7 @@ const AddUserSkill = (props) => {
                         </select>
                         <Form.Row className="form-row">
                             <Col className="form-column">
-                                <button type="submit" class="btn btn-outline-light btn-lg btn-block" style={{marginTop: "100px"}}>Add Skill</button>
+                                <button type="submit" class="btn btn-outline-light btn-lg btn-block" style={{marginTop: "20px"}}>Add Skill</button>
                             </Col>
                         </Form.Row>
                     </Form>
