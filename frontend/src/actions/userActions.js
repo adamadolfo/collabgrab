@@ -40,13 +40,15 @@ export function editProfile(userData) {
     })
         .then(r => r.json())
         .then(user => {
+            debugger
             type = "EDIT_PROFILE"
             payload = user
             return function(dispatch){
-                return { 
+                debugger
+                 dispatch({ 
                 type: type, 
                 payload: payload 
-                }
+                })
             }
         })
 

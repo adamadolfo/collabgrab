@@ -3,10 +3,8 @@ import MainNav from "./MainNav"
 import ProjectCard from './ProjectCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { Select } from 'react-select'
 
 
-// need to add to schema, Project has many requiredSkills 
 // i need to make a search bar that looks for a skill and looks through the projects required skills array for the same skill
 
 
@@ -30,6 +28,7 @@ function ProjectBody() {
     e.preventDefault()
     console.log("submit")
     // need to filter through projects for each project's required_skills then see if the input in state is == the name
+    projects.filter(project => project.required_skills.count > 0)
       debugger
   
     
@@ -43,8 +42,7 @@ function ProjectBody() {
              <Container>
                <Row>
                  <Col>
-                  <Select />
-                 {/* <div className="project-search"> 
+                 <div className="project-search"> 
                  <form onSubmit={filterProjects}>
                    
                   <input
@@ -56,7 +54,7 @@ function ProjectBody() {
                     />
                    </form> 
                    
-                  </div> */}
+                  </div>
                 <CardDeck>
                    {projects.map(project => <ProjectCard project={project}/>)}
                  </CardDeck>

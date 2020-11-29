@@ -62,7 +62,7 @@ const Dashboard = () => {
                       
                         <button onClick={showSkillForm} type="button" class="btn btn-secondary" style={{marginBottom: "20px", marginTop: "20px"}}>Add a new skill </button> 
                         <br/>
-                    
+                        {console.log(user)}
                         {Object.keys(user).length !== 0 ? user.skills.map(skill => <div className='custom-card' > <h6 className='custom-card-text'>{skill.name}</h6> </div>) : null}
 
                         { !hideSkills ? <AddUserSkill/> : null }
