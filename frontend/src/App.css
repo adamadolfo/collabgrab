@@ -15,11 +15,6 @@
   background: none;
 }
 
-.nav-item {
-  font-size: 30px;
-  color: white !important;
-  word-spacing: 20px;
-}
 
 /* welcome */
 
@@ -43,17 +38,9 @@
 }
 
 /* form */
-.form-page {
- height: 937px;
- background-image: url("background.png");
- background-position: center; /* Center the image */
- background-repeat: no-repeat; /* Do not repeat the image */
- background-size: cover; /* Resize the background image to cover the entire container */
- overflow: hidden;
-}
 
  .form-container {
-   background-color: #505050;
+   background-color: #001f2e;
    opacity: 95%;
    height: auto;
    margin-top: 30px;
@@ -79,12 +66,12 @@
   width: 300px;
   height: 300px;
   border: 1px solid;
-  box-shadow: 5px 7px #888888;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.849);
   margin: 10px;
 } 
 
 .card-footer {
-  background-color: #242424;
+  background-color: #001f2e;
 }
 
 .footer-text {
@@ -94,6 +81,9 @@
 /* dashboard */
 .dashboard {
   text-align: center;
+  background-image: url('https://i.imgur.com/9sgsh2l.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .dash-row-1 {
@@ -102,15 +92,23 @@
   margin-bottom: 20px;
 }
 
-.dash-col-four {
-  background-color: gray;
-  height: 20px;
+.dash-row-2 {
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.849);
+ 
+}
+
+.dash-row-3 {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.849);
 }
 
 .dash-one-one {
   height: 800px;
-  background-color: #1d2324;
+  background-color: #ffffff;
   border-radius: 20px;
+  box-shadow: 5px 7px #2a2a2ac9;
 }
 
 
@@ -147,6 +145,46 @@
   background-color: rgb(240, 240, 240);
   width: 85%;
 } 
+
+
+/* form */
+.form-page {
+ height: 937px;
+ background-image: url("background.png");
+ background-position: center; /* Center the image */
+ background-repeat: no-repeat; /* Do not repeat the image */
+ background-size: cover; /* Resize the background image to cover the entire container */
+ overflow: hidden;
+}
+
+ .form-container {
+   background-color: #001f2e;
+   opacity: 95%;
+   height: auto;
+   margin-top: 30px;
+   margin-bottom: 30px;
+   border-radius: 25px;
+   border: 2px solid #00000000;
+   box-shadow: 5px 5px 5px rgb(0, 0, 0);
+ }
+
+ .form-row {
+   margin: 20px;
+ }
+ 
+ .form-label {
+   color: white;
+   font-size: 1.5rem;
+ }
+
+
+/* */
+.skill-body {
+  background-image: url('https://i.imgur.com/9sgsh2l.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
 
 

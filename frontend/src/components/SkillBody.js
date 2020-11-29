@@ -28,7 +28,7 @@ function SkillBody (props) {
  
 
          return (
-           <div>
+           <div className="skill-body">
              <MainNav/>
 
              <Container>

@@ -12,6 +12,7 @@ function Welcome() {
     const textStyle = {
         fontSize: "5rem", 
         color: "white"
+       
     }
 
     return (
@@ -28,8 +29,8 @@ function Welcome() {
                     <div class="col-xl-">
                         <h1 style={textStyle}> Bring an idea to life. </h1>
                         <h1 style={textStyle}> Collaborate with people world-wide. </h1>
-                        <Link to='/signup'>
-                            <button type="button" class="btn btn-outline-light btn-lg btn-block">sign-up</button>
+                        <Link to='/signup' style={{ textDecoration: 'none' }} >
+                            <button type="button" class="btn btn-outline-light btn-lg btn-block">Sign-up</button>
                         </Link>
                     </div>
                     <div class="col-sm">

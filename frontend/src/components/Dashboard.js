@@ -37,7 +37,7 @@ const Dashboard = () => {
                     <div class="col dash-one-one">
                         {hideEdit ? 
                         <>
-                        <h1 style={{color: "white", margin: "10px"}} >
+                        <h1 style={{margin: "10px"}} >
                             {user.name}
                         </h1>
                         <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}>Edit Profile </button>
@@ -53,7 +53,7 @@ const Dashboard = () => {
                 
                 </div>
 
-                <div class="row dash-row-2" style={{marginTop: "100px"}} >
+                <div class="row dash-row-2" style={{marginTop: "100px", backgroundColor: 'white'}} >
                  
                     <div class="col">
                         <h1>
@@ -75,6 +75,7 @@ const Dashboard = () => {
                         <h1 >
                             Projects
                         </h1>
+                        {console.log(user)}
                         {Object.keys(user).length !== 0 ? user.projects.map(project => <div className='custom-card'> <h6 className='custom-card-text'>{project.name}</h6> </div>) : null}
                         <br/>
                         <button onClick={showProjectForm} type="button" class="btn btn-secondary" style={{marginBottom: "20px", marginTop: "20px"}}>Create a new Project </button> 
@@ -85,7 +86,7 @@ const Dashboard = () => {
                 </div>
               
             </div>
-               <div style={{width: "100%", height: "100px", backgroundColor: "#505050"}} > </div>
+               <div style={{width: "100%", height: "100px", backgroundColor: "#111111"}} > </div>
         </div>
     )
 

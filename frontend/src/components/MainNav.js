@@ -2,21 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function MainNav() {
+    const bulletStyle = {
+        textDecoration: 'none',
+        listStyleType: 'none',
+        fontSize: '30px',
+        color: 'white',
+        right: '0px'
+    }
     return (
     
       
-    <nav class="navbar sticky-top navbar-light" style={{backgroundColor: "#24454b", opacity: '95%'}}>
-        <Link to='/dashboard'>
-            <img class="navbar-brand" src='https://i.imgur.com/nHbE8tX.png' height="85px" width="300px"/> 
+    <div class="navbar sticky-top navbar-light" style={{backgroundColor: "#001f2e", opacity: '95%'}}>
+        <Link to='/dashboard' style={bulletStyle}>
+            <img src='https://i.imgur.com/nHbE8tX.png' height="85px" width="300px"/> 
         </Link>
-        <Link to='skills'> 
-            <a class="nav-item" href="#" >Skills</a>
+        <Link to='skills' style={bulletStyle}> 
+            <li >Skills</li>
         </Link>
-        <Link to='projects'>
-            <a class="nav-item" href="#" >Projects</a>
+            <Link to='projects' style={bulletStyle}>
+            <li >Projects</li>
         </Link>
-        <a class="nav-item" href="#">Logout</a>
-    </nav>
+        <button style={{backgroundColor: "#001f2e",  fontSize: '30px',
+        color: 'white', border: 'none'}}> Logout </button>
+    </div>
     );
   }
   
