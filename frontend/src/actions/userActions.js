@@ -1,4 +1,4 @@
-import { SIGN_UP, LOG_IN, EDIT_PROFILE} from './types'
+import { SIGN_UP, LOG_IN, LOGOUT, EDIT_PROFILE} from './types'
 
 export function signUp(userData) {
     return function(dispatch) {
@@ -31,26 +31,39 @@ export function logIn(userData) {
 }
 
 export function editProfile(userData) {
-    let type = null
-    let payload = null
-    fetch(`http://localhost:3001/users/${userData.user_id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
-    })
-        .then(r => r.json())
-        .then(user => {
-            debugger
-            type = "EDIT_PROFILE"
-            payload = user
-            return function(dispatch){
-                debugger
-                 dispatch({ 
-                type: type, 
-                payload: payload 
-                })
-            }
+    return function(dispatch) {
+        let type = null
+        let payload = null
+        fetch(`http://localhost:3001/users/${userData.user_id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
         })
+            .then(r => r.json())
+            .then(user => {
+                type = "EDIT_PROFILE"
+                payload = user
+                     dispatch({ 
+                    type: type, 
+                    payload: payload 
+                    })
+                
+            })
 
+    } 
+  
+}
 
+export const logOut = () => {
+
+    return function(dispatch) {
+   
+        fetch('http://localhost:3001/logout', {
+            method: 'DELETE'
+        })
+        .then(r => r.json())
+        .then(r => {
+         
+        })
+    }
 }

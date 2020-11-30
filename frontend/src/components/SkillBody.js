@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import MainNav from "./MainNav"
+import Footer from './Footer'
 import SkillCard from './SkillCard'
 import UserCard from './UserCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
@@ -28,7 +29,7 @@ function SkillBody (props) {
  
 
          return (
-           <div className="skill-body">
+           <div className="background">
              <MainNav/>
 
              <Container>
@@ -48,7 +49,7 @@ function SkillBody (props) {
                </Row>
              </Container>
    
-             
+             <Footer />
                   
              
            </div>

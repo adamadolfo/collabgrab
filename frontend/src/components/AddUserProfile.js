@@ -43,7 +43,7 @@ const AddUserProfile = (props) => {
           user_id: user.id
         }
        
-        editProfile(newObj)
+        props.editProfile(newObj)
     }
     
     

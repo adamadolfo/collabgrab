@@ -12,3 +12,6 @@ export const EDIT_PROFILE = 'EDIT_PROFILE'
 export const SIGN_UP = 'SIGN_UP'
 
 export const LOG_IN = 'LOG_IN'
+
+export const LOGOUT = 'LOGOUT'
+

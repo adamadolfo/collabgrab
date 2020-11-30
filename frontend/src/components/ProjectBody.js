@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import MainNav from "./MainNav"
+import Footer from './Footer'
 import ProjectCard from './ProjectCard'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
@@ -16,27 +17,31 @@ function ProjectBody() {
   
 
   let [input, setInput] = useState("")
-  
+  let [filterTrigger, setFilterTrigger] = useState(false)
+  let [filtered, setFiltered] = useState([])
+
 
 
   const onChange = (e) => {
     setInput(input = e.target.value)
     
   }
+  
 
   const filterProjects = (e) => {
     e.preventDefault()
-    console.log("submit")
-    // need to filter through projects for each project's required_skills then see if the input in state is == the name
-    projects.filter(project => project.required_skills.count > 0)
-      debugger
-  
-    
-    console.log(projects)
+      let x = projects.filter(project => {
+      return project.required_skills.find(skill => {
+        return skill.name == input
+      })
+    })
+    setFilterTrigger(filterTrigger = true)
+    setFiltered(filtered = x)
+    debugger
   }
 
          return (
-           <div>
+           <div className="background" >
              <MainNav/>
 
              <Container>
@@ -56,14 +61,19 @@ function ProjectBody() {
                    
                   </div>
                 <CardDeck>
-                   {projects.map(project => <ProjectCard project={project}/>)}
+                   {!filterTrigger ? 
+                   projects.map(project => <ProjectCard project={project}/>) 
+                   :
+                   filtered.map(project => <ProjectCard project={project}/>)
+                   }
+                
                  </CardDeck>
    
                  </Col>
                </Row>
              </Container>
    
-             
+             <Footer />
                   
              
            </div>

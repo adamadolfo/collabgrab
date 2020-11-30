@@ -1,50 +1,52 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Col, Container } from 'react-bootstrap'
 import WelcomeNavbar from './WelcomeNavbar'
 
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { signUp } from '../actions/userActions'
+import { useHistory } from "react-router-dom";
+
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom';
 
 
 
+function SignUp(props) {
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const history = useHistory();
+    const user = useSelector(state => state.user.user.user)
 
-class SignUp extends Component {
-    state = {
-        name: "",
-        username: "",
-        password: ""
+    
+    const nameOnChange = (e) => {
+        setName(e.target.value)
     }
 
-    nameOnChange = (e) => {
-        this.setState({
-            name: e.target.value
-        })
+    const usernameOnChange = (e) => {
+        setUsername(e.target.value)
     }
 
-    usernameOnChange = (e) => {
-        this.setState({
-            username: e.target.value
-        })
+    const passwordOnChange = (e) => {
+        setPassword(e.target.value)
     }
 
-    passwordOnChange = (e) => {
-        this.setState({
-            password: e.target.value
-        })
-    }
-
-    submitHandler = (event) => {
+    const submitHandler = (event) => {
         event.preventDefault()
         const newObj = {
-          name: this.state.name,
-          username: this.state.username,
-          password: this.state.password 
+          name: name,  
+          username: username,
+          password: password 
         }
-        this.props.signUp(newObj)
+        props.signUp(newObj)
+        // if (user) {
+        history.push("/dashboard");
+        // }
     }
 
-    render() {
+ 
+
         return(
         <div className="form-page">
             <WelcomeNavbar />
@@ -52,23 +54,23 @@ class SignUp extends Component {
                 <h1 style={{color: "white", fontSize: "3rem", textAlign: "center", padding: "20px"}}> Sign-Up </h1>
                 <Container>  
 
-                <Form onSubmit={(e) => this.submitHandler(e)}>
+                <Form onSubmit={(e) => submitHandler(e)}>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label" > Name: </Form.Label>
-                            <Form.Control onChange={(e) => this.nameOnChange(e)} value={this.state.name} placeholder="Name" />
+                            <Form.Control onChange={(e) => nameOnChange(e)} placeholder="Name" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label"> Username: </Form.Label>
-                            <Form.Control onChange={(e) => this.usernameOnChange(e)} placeholder="Username" />
+                            <Form.Control onChange={(e) => usernameOnChange(e)} placeholder="Username" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
                         <Col className="form-column">
                             <Form.Label className="form-label"> Password: </Form.Label>
-                            <Form.Control onChange={(e) => this.passwordOnChange(e)} type='password' placeholder="Password" />
+                            <Form.Control onChange={(e) => passwordOnChange(e)} type='password' placeholder="Password" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="form-row">
@@ -80,8 +82,7 @@ class SignUp extends Component {
             </Container>
             </Container>
         </div>
-        )
-    }    
+        )  
 }
 
 SignUp.propTypes = {

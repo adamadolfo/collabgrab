@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import MainNav from "./MainNav"
+import Footer from './Footer'
 import { useSelector } from 'react-redux'
 import AddUserSkill from './AddUserSkill'
 import AddUserProject from './AddUserProject';
@@ -39,6 +40,8 @@ const Dashboard = () => {
                         <>
                         <h1 style={{margin: "10px"}} >
                             {user.name}
+                            <p> {user.location} </p>
+                            <p> {user.bio} </p>
                         </h1>
                         <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}>Edit Profile </button>
                         </>
@@ -62,7 +65,6 @@ const Dashboard = () => {
                       
                         <button onClick={showSkillForm} type="button" class="btn btn-secondary" style={{marginBottom: "20px", marginTop: "20px"}}>Add a new skill </button> 
                         <br/>
-                        {console.log(user)}
                         {Object.keys(user).length !== 0 ? user.skills.map(skill => <div className='custom-card' > <h6 className='custom-card-text'>{skill.name}</h6> </div>) : null}
 
                         { !hideSkills ? <AddUserSkill/> : null }
@@ -75,7 +77,6 @@ const Dashboard = () => {
                         <h1 >
                             Projects
                         </h1>
-                        {console.log(user)}
                         {Object.keys(user).length !== 0 ? user.projects.map(project => <div className='custom-card'> <h6 className='custom-card-text'>{project.name}</h6> </div>) : null}
                         <br/>
                         <button onClick={showProjectForm} type="button" class="btn btn-secondary" style={{marginBottom: "20px", marginTop: "20px"}}>Create a new Project </button> 
@@ -86,7 +87,7 @@ const Dashboard = () => {
                 </div>
               
             </div>
-               <div style={{width: "100%", height: "100px", backgroundColor: "#111111"}} > </div>
+            <Footer />
         </div>
     )
 

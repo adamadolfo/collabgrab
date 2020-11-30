@@ -1,13 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import { logOut } from '../actions/userActions'
+import { connect } from 'react-redux'
 
 function MainNav() {
+
+    
+
     const bulletStyle = {
         textDecoration: 'none',
         listStyleType: 'none',
         fontSize: '30px',
         color: 'white',
         right: '0px'
+    }
+
+    const logout = () => {
+        logOut()
     }
     return (
     
@@ -22,10 +32,13 @@ function MainNav() {
             <Link to='projects' style={bulletStyle}>
             <li >Projects</li>
         </Link>
-        <button style={{backgroundColor: "#001f2e",  fontSize: '30px',
-        color: 'white', border: 'none'}}> Logout </button>
+        <Link to='/' style={bulletStyle}>
+            <button onClick={() => logout()} style={{backgroundColor: "#001f2e",  fontSize: '30px',
+            color: 'white', border: 'none'}}> Logout </button>
+        </Link>
     </div>
     );
   }
   
-  export default MainNav;
+
+  export default connect(null, { logOut })(MainNav)
