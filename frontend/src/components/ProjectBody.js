@@ -23,13 +23,8 @@ function ProjectBody() {
 
 
   const onChange = (e) => {
+    console.log(e.target.value)
     setInput(input = e.target.value)
-    
-  }
-  
-
-  const filterProjects = (e) => {
-    e.preventDefault()
       let x = projects.filter(project => {
       return project.required_skills.find(skill => {
         return skill.name == input
@@ -37,7 +32,7 @@ function ProjectBody() {
     })
     setFilterTrigger(filterTrigger = true)
     setFiltered(filtered = x)
-    debugger
+  
   }
 
          return (
@@ -48,16 +43,12 @@ function ProjectBody() {
                <Row>
                  <Col>
                  <div className="project-search"> 
-                 <form onSubmit={filterProjects}>
+                
+
                    
-                  <input
-                    onChange={(e) => onChange(e)}
-                    className='input-area' 
-                    type="text" 
-                    name="search" 
-                    placeholder=" Search.." 
-                    />
-                   </form> 
+                  <select onChange={onChange}> 
+                    {skills.map(skill => <option value={skill.name} > {skill.name} </option>)}
+                  </select>
                    
                   </div>
                 <CardDeck>

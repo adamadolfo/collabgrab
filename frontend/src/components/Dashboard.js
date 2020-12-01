@@ -37,20 +37,23 @@ const Dashboard = () => {
 
                     <div class="col dash-one-one">
                         {hideEdit ? 
+                        
                         <>
-                        <h1 style={{margin: "10px"}} >
-                            {user.name}
+                            <h1 style={{margin: "10px"}} >
+                                {user.name}
+                            </h1>   
+                            <img src={user.img} />
                             <p> {user.location} </p>
                             <p> {user.bio} </p>
-                        </h1>
-                        <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}>Edit Profile </button>
+                            
+                            <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}>Edit Profile </button>
                         </>
                         : 
                         <>
-                        <AddUserProfile /> 
-                        <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}> Back </button> 
-                        
+                            <AddUserProfile /> 
+                            <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}> Back </button> 
                         </>
+                
                         }
                     </div> 
                 
@@ -71,7 +74,7 @@ const Dashboard = () => {
                     </div>
                 
                 </div>
-                <div class="row dash-row-3" style={{marginTop:"100px"}}>
+                <div class="row dash-row-3" style={{marginTop:"100px", height: "300px"}}>
                
                     <div class="col">
                         <h1 >
