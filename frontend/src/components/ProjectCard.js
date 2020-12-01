@@ -5,8 +5,7 @@ import { Card } from 'react-bootstrap'
 function ProjectCard(props) {
       return (
         <div>
-          <Card className='card'>
-            {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
+          <Card onClick={() => props.handleProjectClick(props.project)} className='card'>
             <Card.Body>
               <Card.Title><h4>{props.project.name}</h4></Card.Title>
               <Card.Text>

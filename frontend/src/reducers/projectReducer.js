@@ -1,8 +1,9 @@
-import { FETCH_PROJECTS, ADD_PROJECT } from '../actions/types'
+import { FETCH_PROJECTS, ADD_PROJECT, CLICKED_PROJECT } from '../actions/types'
 
 const initialState = {
     projects: [],
-    project: {}
+    project: {},
+    clickedProject: {}
 }
 
 export default function(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 project: action.payload
+            }
+        case CLICKED_PROJECT: 
+            return {
+                ...state,
+                clickedProject: action.payload
             }
         default:
             return state

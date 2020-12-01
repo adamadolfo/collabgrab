@@ -2,25 +2,30 @@ import React, {useState} from "react"
 import MainNav from "./MainNav"
 import Footer from './Footer'
 import ProjectCard from './ProjectCard'
+import ProjectShow from './ProjectShow'
 import { CardDeck, Container, Row, Col } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
+import { connect } from 'react-redux'
+import { sendMessage, clickedProject } from '../actions/projectActions'
 
 
-// i need to make a search bar that looks for a skill and looks through the projects required skills array for the same skill
 
 
-function ProjectBody() {
+function ProjectBody(props) {
   
   let projects = useSelector(state => state.projects.projects)
   const skills = useSelector(state => state.skills.skillsArray)
-  const skillNames = skills.map(skill => skill.name)
-  
+  const project = useSelector(state => state.projects.clickedProject)
+  let user = useSelector(state => state.user.user)
 
   let [input, setInput] = useState("")
   let [filterTrigger, setFilterTrigger] = useState(false)
   let [filtered, setFiltered] = useState([])
+  let [clicked, setClicked] = useState(false)
+  let [message, setMessage] = useState("")
 
 
+  
 
   const onChange = (e) => {
     console.log(e.target.value)
@@ -35,34 +40,57 @@ function ProjectBody() {
   
   }
 
+  const handleProjectClick = (eventClickedProject) => {
+    setClicked(!clicked)
+    console.log(eventClickedProject)
+    props.clickedProject(eventClickedProject)
+  }
+
+  const messageOnChange = (e) => {
+    setMessage(message = e.target.value)
+}
+
+const sendMessage = (e) => {
+  e.preventDefault()
+  const obj = {
+    message: message,
+    project_id: project.id,
+    user_id: user.id,
+    name: user.name
+  }
+  props.sendMessage(obj)
+
+
+}
+
          return (
            <div className="background" >
              <MainNav/>
-
+            
+             {!clicked ? 
              <Container>
                <Row>
                  <Col>
-                 <div className="project-search"> 
-                
-
-                   
-                  <select onChange={onChange}> 
-                    {skills.map(skill => <option value={skill.name} > {skill.name} </option>)}
-                  </select>
-                   
+                 <div className="project-search">   
+                    <select onChange={onChange}> 
+                      {skills.map(skill => <option handleProjectClick={handleProjectClick} value={skill.name} > {skill.name} </option>)}
+                    </select>
                   </div>
                 <CardDeck>
                    {!filterTrigger ? 
-                   projects.map(project => <ProjectCard project={project}/>) 
+                   projects.map(project => <ProjectCard handleProjectClick={handleProjectClick} project={project}/>) 
                    :
-                   filtered.map(project => <ProjectCard project={project}/>)
+                   filtered.map(project => <ProjectCard handleProjectClick={handleProjectClick} project={project}/>)
                    }
                 
                  </CardDeck>
    
                  </Col>
-               </Row>
-             </Container>
+                </Row>
+               </Container>
+               :
+                <ProjectShow project={project} sendMessage={sendMessage} messageOnChange={messageOnChange} />
+               }
    
              <Footer />
                   
@@ -75,6 +103,6 @@ function ProjectBody() {
 
 
     
-    export default ProjectBody
+    export default connect(null, { sendMessage, clickedProject })(ProjectBody)
 
    
