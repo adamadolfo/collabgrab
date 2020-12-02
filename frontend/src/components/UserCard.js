@@ -17,8 +17,8 @@ function UserCard(props) {
               <Card.Text>
                 {props.user.bio}
                 Skills:
-                {console.log(props.user)}
-                {/* {props.user.skills.map(skill => <p> {skill.name}</p>)} */}
+                {props.user.skills ? props.user.skills.map(skill => <p> {skill.name}</p>) : null}
+                Karma: {props.user.karma}
               </Card.Text>
             </Card.Body>
             <Card.Footer className='card-footer'>

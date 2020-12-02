@@ -81,25 +81,37 @@
 
 /* dashboard */
 .dashboard {
-  text-align: center;
+ 
   background-image: url('https://i.imgur.com/9sgsh2l.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+.profile {
+  background-color: #001f2e;
+  height: 637px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 25px;
+  border: 2px solid #00000000;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+  color: white;
+}
+
 .dash-row-1 {
-  
   margin-top: 40px;
   margin-bottom: 20px;
 }
 
 .dash-row-2 {
+  text-align: center;
   border-radius: 20px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.849);
  
 }
 
 .dash-row-3 {
+  text-align: center;
   background-color: white;
   border-radius: 20px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.849);
@@ -107,9 +119,6 @@
 
 .dash-one-one {
   height: 800px;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 5px 7px #2a2a2ac9;
 }
 
 
