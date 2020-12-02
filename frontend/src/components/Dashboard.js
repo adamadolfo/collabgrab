@@ -74,7 +74,7 @@ const Dashboard = () => {
                     </div>
                 
                 </div>
-                <div class="row dash-row-3" style={{marginTop:"100px", height: "300px"}}>
+                <div class="row dash-row-3" style={{marginTop:"100px", height: "auto", marginBottom: "100px"}}>
                
                     <div class="col">
                         <h1 >
