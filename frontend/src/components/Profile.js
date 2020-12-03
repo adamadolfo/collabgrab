@@ -19,7 +19,7 @@ const Profile = () => {
 
                     <div class="col dash-one-one">
                        
-                        <h1 style={{color: "white", margin: "10px"}} >
+                        <h1 style={{color: "white", margin: "100px"}} >
                             {user.name}
                         </h1>
 

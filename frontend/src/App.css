@@ -65,7 +65,7 @@
 /* cards */
 .card {
   width: 300px;
-  height: 300px;
+  height: auto;
   border: 1px solid;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.849);
   margin: 10px;
