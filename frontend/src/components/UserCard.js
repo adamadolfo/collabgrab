@@ -11,14 +11,16 @@ function UserCard(props) {
        
           
           <Card className='card' >
-            <Card.Img variant="top" src={props.user.img} />
+            <Card.Img style={{height: "200px"}} variant="top" src={props.user.img} />
             <Card.Body>
               <Card.Title>{props.user.name}</Card.Title>
               <Card.Text>
                 {props.user.bio}
-                Skills:
-                {console.log(props.user)}
-                {/* {props.user.skills.map(skill => <p> {skill.name}</p>)} */}
+                <br />
+                <br />
+                {/* Skills:
+                {props.user.skills ? props.user.skills.map(skill => <p> {skill.name}</p>) : <p>This is a test account.</p>} */}
+                Karma: {props.user.karma ? props.user.karma : <p>Test accounts don't have karma.</p>}
               </Card.Text>
             </Card.Body>
             <Card.Footer className='card-footer'>

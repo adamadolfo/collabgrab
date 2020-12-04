@@ -10,20 +10,29 @@ import { createUserSkill } from '../actions/userSkillAction'
 const AddUserSkill = (props) => {
     const skillsArray = useSelector(state => state.skills.skillsArray)
   
-    const [selection, setSelection] = useState("");
+    let [selection, setSelection] = useState("");
     const user = useSelector(state => state.user.user)
 
+
     const handleSelect = (e) => {
-        setSelection(e.target.value)
+        setSelection(selection = e.target.value)
+        
     }
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        let newObj = {
-            skill_id: parseInt(selection),
-            user_id: user.id
+        if (user.skills.count != 0) {
+            const skillNum = parseInt(selection)
+            let newObj = {
+                skill_id: skillNum,
+                user_id: user.id
+            }
+            debugger
+            props.createUserSkill(newObj)
+        } else {
+            console.log("failure")
         }
-        props.createUserSkill(newObj)
+
     }
     console.log(skillsArray)
         return(
@@ -35,6 +44,7 @@ const AddUserSkill = (props) => {
                            
                     <Form onSubmit={(e) => handleSubmit(e)}>
                         <select onChange={handleSelect}>
+                            <option> Select Skill </option>
                             {skillsArray.length !== 0 ? skillsArray.map(skill => <option value={skill.id}> {skill.name} </option>) : null}
                         </select>
                         <Form.Row className="form-row">

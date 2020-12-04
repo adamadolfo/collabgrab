@@ -76,6 +76,7 @@ const AddUserProject = (props) => {
                         <Col className="form-column">
                             <Form.Label className="form-label"> Required Skill: </Form.Label>
                             <select onChange={selectedRequiredSkill}>
+                                <option>Select a Skill</option> 
                             {skillsArray.map(skill => <option value={skill.name}> {skill.name} </option>)}
                             </select>
                         </Col>

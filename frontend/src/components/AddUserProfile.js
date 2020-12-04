@@ -50,9 +50,10 @@ const AddUserProfile = (props) => {
         return(
         <div>
             <Container className="form-container">
+            <button onClick={props.showEditForm} type="button" class="btn btn-secondary" style={{ position: "absolute", right: "50px", top: "50px"}}> Back </button> 
+                            <br />
                 <h1 style={{color: "white", fontSize: "3rem", textAlign: "center", padding: "20px"}}> Edit profile </h1>
                 <Container>  
-
                     <Form onSubmit={(e) => editHandler(e)}>
                     <Form.Row className="form-row">
                         <Col className="form-column">
@@ -81,11 +82,14 @@ const AddUserProfile = (props) => {
                         <Form.Row className="form-row">
                             <Col className="form-column">
                                 <button type="submit" class="btn btn-outline-light btn-lg btn-block" style={{marginTop: "40px"}}>Edit Profile</button>
+
                             </Col>
                         </Form.Row>
-                    </Form>
                     
+                    </Form>
                 </Container>
+          
+
             </Container>
         </div>
         ) 
