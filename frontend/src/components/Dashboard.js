@@ -39,20 +39,20 @@ const Dashboard = () => {
                         {hideEdit ? 
                         
                         <div className="profile">
-                            <div className='container'>
+                            <div className='container id-card'>
                                 <div className="row">
-                                    <h1 style={{margin: "25px"}} >
+                                    <h1 style={{marginLeft: "100px", marginBottom: "40px", marginTop: "40px"}} >
                                         {user.name}
                                     </h1>   
                                 </div>
                                 <div className="row">
-                                    <div className="col-4">
+                                    <div className="col-3">
                                         <img src={user.img} style={{height: "250px", width: "250px", marginLeft: "20px"}}/>
                                     </div>
                                     <div className="col-1">
 
                                     </div>
-                                    <div className="col-7">
+                                    <div className="col-8">
                                         <h3>{user.location}</h3>
                                         <p style={{fontSize: "1.25rem"}}>{user.bio} </p>
                                         <div style={{fontSize: "2rem", marginTop: "50px"}}>karma: <span style={{color: "#84c4be"}}>{user.karma}</span></div>

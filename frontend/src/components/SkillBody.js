@@ -47,7 +47,7 @@ function SkillBody (props) {
    
                  </Col>
                </Row>
-             </Container>
+             </Container >
    
              <Footer />
                   
