@@ -24,14 +24,14 @@ A user can search though all of the skills to find people with those skills
 
 
 A user can filter projects based on what skill they require. <br/>
-users can "collaborate" on a project by contributing to a message board where messages persist 
+users can "collaborate" on a project by contributing to a message board where messages persist.
 
 
 ![projectsandchat](https://user-images.githubusercontent.com/69116393/101393290-daacb900-3894-11eb-8765-95ccef1c1567.gif)
 
 
 
-users gain "karma points" for contributing in message boards, adding skills to their resume, and hosting a project. \                   
+users gain "karma points" for contributing in message boards, adding skills to their resume, and hosting a project.                    
 
 
 
@@ -40,16 +40,16 @@ users gain "karma points" for contributing in message boards, adding skills to t
 
 ## Technologies
 
--built with create-react-app
--uses both redux for large state management as well as react hooks for small jobs
--bootstrap and react-strap front-end framework 
+built with create-react-app <br/>
+uses both redux for large state management as well as react hooks for small jobs <br/>
+bootstrap and react-strap front-end framework <br/>
 
 
 
 ## Setup
-$ npm install
-$ npm start
-server starts on localhost port 3000
+$ npm install <br/>
+$ npm start <br/>
+server starts on localhost port 3000 <br/>
 
 
 
