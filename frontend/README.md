@@ -17,7 +17,7 @@ A user can create project with a description and required skills they need help 
 ![logiskillproject](https://user-images.githubusercontent.com/69116393/101390462-dd0d1400-3890-11eb-9a7b-b2aa251a68da.gif)
 
 
-A user can search though all of the skills to find people with those skills 
+A user can search though all of the skills to find people with those skills.
 
 
 ![skillsandusers](https://user-images.githubusercontent.com/69116393/101391965-1b0b3780-3893-11eb-8f44-7865706d81cd.gif)
