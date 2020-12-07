@@ -51,5 +51,6 @@ $ npm install <br/>
 $ npm start <br/>
 server starts on localhost port 3000 <br/>
 
-
+## Link to backend
+https://github.com/adamadolfo/collabgrab-backend
 
