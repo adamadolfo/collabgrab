@@ -12,7 +12,7 @@ example: If I had a project where I wanted to create a trading card game. I woul
 
 A user can create a profile and add skills based on what they know and can offer to other users
 A user can create project with a description and required skills they need help with from other users
-![alt text](https://i.imgur.com/nFJPEMi.mp4)
+![Alt text](relative/path/to/logiskillproject.gif?raw=true "login, skill, project")
 
 A user can search though all of the skills to find people with those skills
 A user can filter projects based on what skill they require
