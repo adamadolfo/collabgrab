@@ -7,6 +7,9 @@ CollabGrab is a platform where a user can have skills and search for projects to
 Users can also add a project that needs people with a required skillset to complete. Find a user who can help out with a background you need help in.
 example: If I had a project where I wanted to create a trading card game. I would post my project and try to find an artist who believes in the project to collaborate.
 
+## Note: This is the repo for CollabGrab's frontend. To see the repo for the backend visit this link <br/>
+https://github.com/adamadolfo/collabgrab-backend
+
 
 ## Features
 
@@ -40,9 +43,9 @@ users gain "karma points" for contributing in message boards, adding skills to t
 
 ## Technologies
 
-built with create-react-app <br/>
+CollabGrab is a react application <br/>
 uses both redux for large state management as well as react hooks for small jobs <br/>
-bootstrap and react-strap front-end framework <br/>
+bootstrap and react-bootstrap front-end framework <br/>
 
 
 
@@ -51,6 +54,4 @@ $ npm install <br/>
 $ npm start <br/>
 server starts on localhost port 3000 <br/>
 
-## Link to backend
-https://github.com/adamadolfo/collabgrab-backend
 
