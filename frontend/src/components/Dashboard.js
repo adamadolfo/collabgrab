@@ -8,13 +8,34 @@ import AddUserProfile from './AddUserProfile';
 
 
 const Dashboard = () => {
+      
 
+    
 
     let user = useSelector(state => state.user.user)
     
     const [hideSkills, setHideSkills] = useState(true)
     const [hideProjects, setHideProjects] = useState(true)
     const [hideEdit, setHideEdit] = useState(true)
+    let [loading, setLoading] = useState(true)
+
+    const getdata = async (user) => {
+        return await user
+        
+      }
+
+    
+    const finishLoading = (user) => {
+        debugger
+        if (Object.keys(user).length !== 0) {
+                setLoading(!loading)
+        }
+    }
+
+    useEffect(() => {
+        getdata()
+    })
+
 
     const showSkillForm = () => {
         setHideSkills(!hideSkills)
@@ -43,7 +64,8 @@ const Dashboard = () => {
                                 <div className="row">
                                     <h1 style={{marginLeft: "100px", marginBottom: "40px", marginTop: "40px"}} >
                                         {user.name}
-                                    </h1>   
+                                    </h1>
+                                      
                                 </div>
                                 <div className="row">
                                     <div className="col-3">
@@ -55,6 +77,8 @@ const Dashboard = () => {
                                     <div className="col-8">
                                         <h3>{user.location}</h3>
                                         <p style={{fontSize: "1.25rem"}}>{user.bio} </p>
+                                        {console.log(user)}
+                                        <div> {!loading ? <div> <span> followers: {user.followers.length} </span> <span> following: { user.followeds.length } </span> </div>: finishLoading(user)}  </div>
                                         <div style={{fontSize: "2rem", marginTop: "50px"}}>karma: <span style={{color: "#84c4be"}}>{user.karma}</span></div>
                                         <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "10px", position: "absolute", right: "10px"}}>Edit Profile </button>
                                     </div>    

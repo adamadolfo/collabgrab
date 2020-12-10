@@ -1,4 +1,4 @@
-import { SIGN_UP, LOG_IN, EDIT_PROFILE } from '../actions/types'
+import { SIGN_UP, LOG_IN, FOLLOW } from '../actions/types'
 
 const initialState = {
     user: {}

@@ -1,9 +1,19 @@
 import React from "react"
 import { Card } from 'react-bootstrap'
-
+import { useSelector } from 'react-redux'
+import { connect } from 'react-redux'
+import { follow } from '../actions/userActions'
 
 function UserCard(props) {
+  let user = useSelector(state => state.user.user)
 
+  const followEvent = (clickedUser) => {
+    const followObj = {
+      follower_id: user.id,
+      followed_id: clickedUser.id
+    }
+    props.follow(followObj)
+  }
 
       return (
         <div>
@@ -21,6 +31,7 @@ function UserCard(props) {
                 {/* Skills:
                 {props.user.skills ? props.user.skills.map(skill => <p> {skill.name}</p>) : <p>This is a test account.</p>} */}
                 Karma: {props.user.karma ? props.user.karma : <p>Test accounts don't have karma.</p>}
+                <button onClick={() => followEvent(props.user)} style={{float: "right", backgroundColor: "#001f2e", color: "white", borderRadius: "5px", padding: "7px"}}>Follow</button>
               </Card.Text>
             </Card.Body>
             <Card.Footer className='card-footer'>
@@ -34,4 +45,4 @@ function UserCard(props) {
       );
     }
     
-    export default UserCard 
+    export default connect(null, { follow })(UserCard) 
