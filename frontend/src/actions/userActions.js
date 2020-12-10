@@ -17,7 +17,7 @@ export function signUp(userData) {
 
 export function logIn(userData) {
     return function(dispatch) {
-        fetch('http://localhost:3001/sessions', {
+         fetch('http://localhost:3001/sessions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
@@ -65,5 +65,19 @@ export const logOut = () => {
         .then(r => {
          
         })
+    }
+}
+
+export const follow = (followData) => {
+
+    return function(dispatch) {
+
+        fetch('http://localhost:3001/follow', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(followData)
+        })
+        .then(r => r.json())
+        .then(data => console.log(data))
     }
 }
