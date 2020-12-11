@@ -48,9 +48,8 @@ function UserCard(props) {
                 <br />
                 <br />
                 <strong>Skills:</strong>
-                {console.log(props.user)}
                 {props.user.skills.map(skill => <div> {skill.name}</div>)}
-                <strong style={{marginTop: "10px"}}>Karma:</strong> {props.user.karma ? props.user.karma : <div>Test accounts don't have karma.</div>}
+                <strong style={{marginTop: "10px"}}>Karma:</strong> {props.user.karma ? props.user.karma : 0}
                 <button onClick={() => followEvent(props.user)} style={{float: "right", backgroundColor: "#001f2e", color: "white", borderRadius: "5px", padding: "7px"}}>Follow</button>
               </Card.Text>
             </Card.Body>
