@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { Card } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { connect } from 'react-redux'
@@ -6,6 +6,25 @@ import { follow } from '../actions/userActions'
 
 function UserCard(props) {
   let user = useSelector(state => state.user.user)
+
+  // let [loading, setLoading] = useState(true)
+
+  // const getdata = async (props) => {
+  //     return await props
+      
+  //   }
+
+  
+  // const finishLoading = (props) => {
+  //     debugger
+  //     if (props.user.skills.length !== 0) {
+  //             setLoading(!loading)
+  //     }
+  // }
+
+  // useEffect(() => {
+  //     getdata()
+  // }, [loading] )
 
   const followEvent = (clickedUser) => {
     const followObj = {
@@ -28,9 +47,10 @@ function UserCard(props) {
                 {props.user.bio}
                 <br />
                 <br />
-                {/* Skills:
-                {props.user.skills ? props.user.skills.map(skill => <p> {skill.name}</p>) : <p>This is a test account.</p>} */}
-                Karma: {props.user.karma ? props.user.karma : <p>Test accounts don't have karma.</p>}
+                <strong>Skills:</strong>
+                {console.log(props.user)}
+                {props.user.skills.map(skill => <div> {skill.name}</div>)}
+                <strong style={{marginTop: "10px"}}>Karma:</strong> {props.user.karma ? props.user.karma : <div>Test accounts don't have karma.</div>}
                 <button onClick={() => followEvent(props.user)} style={{float: "right", backgroundColor: "#001f2e", color: "white", borderRadius: "5px", padding: "7px"}}>Follow</button>
               </Card.Text>
             </Card.Body>

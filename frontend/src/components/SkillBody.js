@@ -41,6 +41,7 @@ function SkillBody (props) {
                  </CardDeck> 
                  :
                  <CardDeck>
+                   {console.log(clickedSkill)}
                     {clickedSkill.users.map(user => <UserCard user={user} />)}
                  </CardDeck >
                   }
