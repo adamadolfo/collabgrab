@@ -69,7 +69,6 @@ export const logOut = () => {
 }
 
 export const follow = (followData) => {
-
     return function(dispatch) {
 
         fetch('http://localhost:3001/follow', {
@@ -78,6 +77,9 @@ export const follow = (followData) => {
             body: JSON.stringify(followData)
         })
         .then(r => r.json())
-        .then(data => console.log(data))
+        .then(user => dispatch({
+            type: LOG_IN,
+            payload: user
+        }))
     }
 }
