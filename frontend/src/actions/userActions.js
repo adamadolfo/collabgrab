@@ -1,4 +1,4 @@
-import { SIGN_UP, LOG_IN, LOGOUT, EDIT_PROFILE} from './types'
+import { SIGN_UP, LOG_IN, EDIT_PROFILE} from './types'
 
 export function signUp(userData) {
     return function(dispatch) {
@@ -52,6 +52,21 @@ export function editProfile(userData) {
 
     } 
   
+}
+
+export function makePost(postData) {
+    return function(dispatch) {
+         fetch('http://localhost:3001/blogs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(postData)
+        })
+        .then(r => r.json())
+        .then(user => dispatch({
+            type: LOG_IN,
+            payload: user
+        }))
+    }
 }
 
 export const logOut = () => {

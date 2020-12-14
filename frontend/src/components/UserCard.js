@@ -7,25 +7,6 @@ import { follow } from '../actions/userActions'
 function UserCard(props) {
   let user = useSelector(state => state.user.user)
 
-  // let [loading, setLoading] = useState(true)
-
-  // const getdata = async (props) => {
-  //     return await props
-      
-  //   }
-
-  
-  // const finishLoading = (props) => {
-  //     debugger
-  //     if (props.user.skills.length !== 0) {
-  //             setLoading(!loading)
-  //     }
-  // }
-
-  // useEffect(() => {
-  //     getdata()
-  // }, [loading] )
-
   const followEvent = (clickedUser) => {
     const followObj = {
       follower_id: user.id,
@@ -36,8 +17,6 @@ function UserCard(props) {
 
       return (
         <div>
-          
-       
           
           <Card className='card' >
             <Card.Img style={{height: "200px"}} variant="top" src={props.user.img} />
@@ -57,8 +36,6 @@ function UserCard(props) {
       <small className="footer-text">{props.user.location}</small>
             </Card.Footer>
           </Card>
-  
- 
         
         </div>
       );

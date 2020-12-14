@@ -125,9 +125,30 @@
   height: 800px;
 }
 
+.post-display {
+  background-color: #001f2e;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 25px;
+  border: 2px solid #00000000;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  position: relative;
+}
 
-
-
+.blog-post {
+  background-color: white;
+  color: black;
+  width: 500px;
+  margin: 0 auto;
+  padding: 5px ;
+  position: relative;
+  height:auto;
+  min-height: 60px;
+  text-align: justify;
+}
 
 
 .custom-card {
