@@ -50,7 +50,7 @@ const Dashboard = () => {
         setHideEdit(!hideEdit)
     }
 
-    const makePost= () => {
+    const showPost= () => {
         setNoPost(!noPost) 
     }
 
@@ -85,7 +85,7 @@ const Dashboard = () => {
                                             <div> {!loading ? <div> <span> followers: {user.followers.length} </span> <span> following: { user.followeds.length } </span> </div>: finishLoading(user)}  </div>
                                             <div style={{fontSize: "2rem", marginTop: "50px"}}>karma: <span style={{color: "#84c4be"}}>{user.karma}</span></div>
                                             <button onClick={showEditForm} type="button" class="btn btn-secondary" style={{bottom: "45px", position: "absolute", right: "10px"}}>Edit Profile </button>
-                                            <button onClick={makePost} type="button" class="btn btn-secondary" style={{bottom: "0px", position: "absolute", right: "10px"}}> Make a post </button>
+                                            <button onClick={showPost} type="button" class="btn btn-secondary" style={{bottom: "0px", position: "absolute", right: "10px"}}> Make a post </button>
                                         </div>    
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@ const Dashboard = () => {
                     </div>
                 </>
                 :
-                <BlogPost user={user} makePost={makePost} />
+                <BlogPost user={user} showPost={showPost} />
                 }
               
             </div>

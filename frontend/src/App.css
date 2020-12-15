@@ -138,7 +138,7 @@
   position: relative;
 }
 
-.blog-post {
+.blog-box {
   background-color: white;
   color: black;
   width: 500px;
@@ -150,6 +150,9 @@
   text-align: justify;
 }
 
+.blog-post {
+  margin: 20px;
+}
 
 .custom-card {
   color: "#24454b";
