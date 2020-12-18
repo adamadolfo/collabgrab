@@ -1,7 +1,8 @@
-import { SIGN_UP, LOG_IN, FOLLOW } from '../actions/types'
+import { SIGN_UP, LOG_IN, GET_FEED } from '../actions/types'
 
 const initialState = {
-    user: {}
+    user: {},
+    feed: []
 }
 
 const userReducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: action.payload
+            }
+        case GET_FEED:
+            return {
+                ...state,
+                feed: action.payload
             }
     
         default: 

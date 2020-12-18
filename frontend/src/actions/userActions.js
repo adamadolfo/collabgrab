@@ -1,4 +1,4 @@
-import { SIGN_UP, LOG_IN, EDIT_PROFILE} from './types'
+import { SIGN_UP, LOG_IN, EDIT_PROFILE, GET_FEED} from './types'
 
 export function signUp(userData) {
     return function(dispatch) {
@@ -67,6 +67,22 @@ export function makePost(postData) {
             payload: user
         }))
     }
+}
+
+export const getFeed = (userId) => {
+    return function(dispatch) {
+        fetch('http://localhost:3001/feed', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userId)
+        })
+        .then(r => r.json())
+        .then(feedData => dispatch({
+            type: GET_FEED,
+            payload: feedData
+        }))
+    }
+
 }
 
 export const logOut = () => {

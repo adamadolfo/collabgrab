@@ -26,10 +26,13 @@ function MainNav() {
         <Link to='/dashboard' style={bulletStyle}>
             <img src='https://i.imgur.com/nHbE8tX.png' height="85px" width="300px"/> 
         </Link>
+        <Link to='feed' style={bulletStyle}> 
+            <li >Feed</li>
+        </Link>
         <Link to='skills' style={bulletStyle}> 
             <li >Skills</li>
         </Link>
-            <Link to='projects' style={bulletStyle}>
+        <Link to='projects' style={bulletStyle}>
             <li >Projects</li>
         </Link>
         <Link to='/' style={bulletStyle}>

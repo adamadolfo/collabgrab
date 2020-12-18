@@ -3,9 +3,8 @@ export const FETCH_SKILLS = 'FETCH_SKILLS'
 export const FETCH_PROJECTS = 'FETCH_PROJECTS'
 export const ADD_PROJECT = 'CREATE_PROJECT'
 export const CLICKED_PROJECT = 'CLICKED_PROJECT'
-// export const SEND_MESSAGE = 'SEND_MESSAGE'
 
-// export const NEW_COLLAB = 'NEW_COLLAB'
+export const GET_FEED = 'GET_FEED'
 
 export const CREATE_USER_SKILL = 'CREATE_USER_SKILL'
 
